@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { WEDDING_DAYS } from '../data/weddingData';
 import ScrollReveal from './ScrollReveal';
 
@@ -67,6 +68,17 @@ const getEventImage = (id) => {
   }
 };
 
+const getOutfitImage = (id) => {
+  switch (id) {
+    case 'carnival': return './Outfit-carnival.png';
+    case 'sufi-night': return './outfit-sufinight.png';
+    case 'madap-muhurat': return './outfit-mandap.png';
+    case 'cocktail-party': return './outfit-cocktail.png';
+    case 'wedding': return './outfit-merrige.png';
+    default: return null;
+  }
+};
+
 export default function Celebrations() {
   return (
     <section id="celebrations" className="section celebrations-section">
@@ -118,7 +130,9 @@ export default function Celebrations() {
 }
 
 function EventCard({ event, dayDate }) {
+  const [showOutfit, setShowOutfit] = useState(false);
   const bgImage = getEventImage(event.id);
+  const outfitImage = getOutfitImage(event.id);
   
   let bgPos = 'center';
   if (event.id === 'cocktail-party') bgPos = 'center 25%';
@@ -136,18 +150,59 @@ function EventCard({ event, dayDate }) {
       <div className="event-card-glow" />
 
       <div className="event-card-content">
-        <span className="event-card-icon" aria-hidden="true">
-          {getEventIcon(event.id)}
-        </span>
-        <p className="event-card-date">{dayDate}</p>
-        <h4 className="event-card-name">{event.name}</h4>
-        <p className="event-card-time">{event.time}</p>
+        {showOutfit ? (
+          <div className="outfit-view" style={{ textAlign: 'center', animation: 'fadeIn 0.5s ease forwards' }}>
+            <img src={outfitImage} alt={`${event.name} outfit`} style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem', boxShadow: '0 4px 15px rgba(0,0,0,0.3)' }} />
+            <button onClick={() => setShowOutfit(false)} style={{ 
+              fontSize: '0.9rem', 
+              padding: '0.6rem 1.2rem',
+              backgroundColor: 'rgba(255, 255, 255, 0.9)',
+              color: '#3D0F10',
+              border: 'none',
+              borderRadius: '25px',
+              fontWeight: '600',
+              cursor: 'pointer',
+              boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
+            }}>
+              Close Outfit Plan
+            </button>
+          </div>
+        ) : (
+          <>
+            <span className="event-card-icon" aria-hidden="true">
+              {getEventIcon(event.id)}
+            </span>
+            <p className="event-card-date">{dayDate}</p>
+            <h4 className="event-card-name">{event.name}</h4>
+            <p className="event-card-time">{event.time}</p>
 
-        <div className="event-card-divider" />
+            <div className="event-card-divider" />
 
-        <p className="event-card-desc">{event.description}</p>
-        {event.venue && (
-          <p className="event-card-venue">📍 {event.venue}</p>
+            <p className="event-card-desc">{event.description}</p>
+            {event.venue && (
+              <p className="event-card-venue">📍 {event.venue}</p>
+            )}
+            
+            {outfitImage && (
+              <button 
+                onClick={() => setShowOutfit(true)}
+                style={{ 
+                  marginTop: '1.5rem', 
+                  fontSize: '0.95rem', 
+                  padding: '0.6rem 1.2rem',
+                  backgroundColor: '#C9A84C',
+                  color: '#2A2420',
+                  border: 'none',
+                  borderRadius: '25px',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+                }}
+              >
+                👗 Click me to show outfit plan
+              </button>
+            )}
+          </>
         )}
       </div>
       {/* Decorative corners */}

@@ -112,7 +112,6 @@ export const STORY_CHAPTERS = [
 export const NAV_ITEMS = [
   { id: 'home', label: 'Home', href: '#home' },
   { id: 'celebrations', label: 'Celebrations', href: '#celebrations' },
-  { id: 'wardrobe', label: 'Wardrobe', href: '#wardrobe' },
   { id: 'venue', label: 'Venue', href: '#venue' },
 ];
 

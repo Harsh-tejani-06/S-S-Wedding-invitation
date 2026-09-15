@@ -57,7 +57,8 @@ export default function ScratchCard({ children }) {
       const { x, y } = getPos(e);
       ctx.globalCompositeOperation = 'destination-out';
       ctx.beginPath();
-      ctx.arc(x, y, 20, 0, Math.PI * 2);
+      ctx.arc(x, y, 300, 0, Math.PI * 20000);
+      
       ctx.fill();
     };
 

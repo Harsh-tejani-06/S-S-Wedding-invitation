@@ -6,7 +6,6 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Countdown from './components/Countdown';
 import Celebrations from './components/Celebrations';
-import WardrobePlanner from './components/WardrobePlanner';
 import Venue from './components/Venue';
 import Footer from './components/Footer';
 import { useRef } from 'react';
@@ -64,7 +63,6 @@ export default function App() {
         <Hero />
         <Countdown />
         <Celebrations />
-        <WardrobePlanner />
         <Venue />
         <Footer />
       </main>

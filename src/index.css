@@ -238,6 +238,12 @@ h1, h2, h3, h4, h5 {
   width: 200px;
 }
 
+@keyframes borderPulse {
+  0% { border-color: rgba(201, 168, 76, 0.2); box-shadow: 0 12px 35px rgba(75, 45, 30, 0.08), 0 0 5px rgba(201, 168, 76, 0.1); }
+  50% { border-color: rgba(201, 168, 76, 1); box-shadow: 0 12px 35px rgba(75, 45, 30, 0.08), 0 0 20px rgba(201, 168, 76, 0.6); }
+  100% { border-color: rgba(201, 168, 76, 0.2); box-shadow: 0 12px 35px rgba(75, 45, 30, 0.08), 0 0 5px rgba(201, 168, 76, 0.1); }
+}
+
 /* ─── Ornamental Corners ─── */
 .ornamental-frame {
   position: relative;
@@ -296,17 +302,7 @@ h1, h2, h3, h4, h5 {
   position: relative;
 }
 
-.loading-monogram::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 1px;
-  background: var(--gold);
-  animation: loadingLine 2s var(--ease-elegant) forwards;
-}
+
 
 .loading-names {
   font-family: var(--font-heading);
@@ -323,10 +319,7 @@ h1, h2, h3, h4, h5 {
   50% { opacity: 1; }
 }
 
-@keyframes loadingLine {
-  0% { width: 0; }
-  100% { width: 80px; }
-}
+
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(15px); }
@@ -1152,7 +1145,8 @@ h1, h2, h3, h4, h5 {
   position: relative;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  border: 1px solid rgba(177, 138, 58, 0.28);
+  border: 2px solid var(--gold);
+  animation: borderPulse 3s infinite ease-in-out;
   box-shadow: 0 12px 35px rgba(75, 45, 30, 0.08);
   z-index: 1;
 }
@@ -1238,40 +1232,24 @@ h1, h2, h3, h4, h5 {
 
 /* ─── Specific Event Palettes ─── */
 .event-card-carnival {
-  border-top: 3px solid #8CCFE8;
   color: #FFFFFF;
 }
 .event-card-carnival .event-card-icon { color: #8CCFE8; }
-.event-card-carnival:hover { 
-  border-color: #8CCFE8;
-}
 
 .event-card-sufi-night {
-  border-top: 3px solid #9B78B3;
   color: #FFFFFF;
 }
 .event-card-sufi-night .event-card-icon { color: #9B78B3; }
-.event-card-sufi-night:hover { 
-  border-color: #9B78B3;
-}
 
 .event-card-madap-muhurat {
-  border-top: 3px solid #789C78;
   color: #FFFFFF;
 }
 .event-card-madap-muhurat .event-card-icon { color: #789C78; }
-.event-card-madap-muhurat:hover { 
-  border-color: #789C78;
-}
 
 .event-card-cocktail-party {
-  border-top: 3px solid #3B9EAD;
   color: #FFFFFF;
 }
 .event-card-cocktail-party .event-card-icon { color: #3B9EAD; }
-.event-card-cocktail-party:hover { 
-  border-color: #3B9EAD;
-}
 
 /* Wedding Card (Featured) */
 .event-card-wedding {
@@ -1662,11 +1640,12 @@ h1, h2, h3, h4, h5 {
 
 .venue-card {
   background: var(--ivory);
-  border: 1px solid rgba(201, 168, 76, 0.15);
+  border: 2px solid var(--gold);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
   text-align: center;
   transition: all 0.4s var(--ease-elegant);
+  animation: borderPulse 3s infinite ease-in-out;
 }
 
 .venue-card:hover {
