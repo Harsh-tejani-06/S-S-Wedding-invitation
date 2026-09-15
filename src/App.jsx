@@ -5,19 +5,18 @@ import SealedInvitation from './components/SealedInvitation';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Countdown from './components/Countdown';
-import OurStory from './components/OurStory';
 import Celebrations from './components/Celebrations';
 import WardrobePlanner from './components/WardrobePlanner';
 import Gallery from './components/Gallery';
 import FamilyBlessings from './components/FamilyBlessings';
 import Venue from './components/Venue';
-import MusicControl from './components/MusicControl';
 import Footer from './components/Footer';
+import { useRef } from 'react';
 
 export default function App() {
   const [phase, setPhase] = useState('loading'); // loading → invitation → website
-  const [autoPlayMusic, setAutoPlayMusic] = useState(false);
   const scrollProgress = useScrollProgress();
+  const audioRef = useRef(null);
 
   const handleLoadingComplete = useCallback(() => {
     setPhase('invitation');
@@ -26,8 +25,10 @@ export default function App() {
 
   const handleInvitationOpen = useCallback(() => {
     setPhase('website');
-    setAutoPlayMusic(true);
     document.body.classList.remove('no-scroll');
+    if (audioRef.current) {
+      audioRef.current.play().catch(e => console.log('Audio autoplay prevented', e));
+    }
   }, []);
 
   const isWebsite = phase === 'website';
@@ -60,14 +61,10 @@ export default function App() {
       {/* Navigation */}
       <Navigation visible={isWebsite} />
 
-      {/* Music Control */}
-      <MusicControl visible={isWebsite} autoPlay={autoPlayMusic} />
-
       {/* Main Content */}
       <main style={{ opacity: isWebsite ? 1 : 0, transition: 'opacity 0.8s ease' }}>
         <Hero />
         <Countdown />
-        <OurStory />
         <Celebrations />
         <WardrobePlanner />
         <Gallery />
@@ -75,6 +72,8 @@ export default function App() {
         <Venue />
         <Footer />
       </main>
+
+      <audio ref={audioRef} src={`${import.meta.env.BASE_URL}Background-Music.mp3`} loop preload="auto" />
     </>
   );
 }

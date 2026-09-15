@@ -27,7 +27,7 @@ export default function Hero() {
               <span className="hero-logo-fallback">S & S</span>
             ) : (
               <img
-                src={`${import.meta.env.BASE_URL}logo.jpeg`}
+                src={`${import.meta.env.BASE_URL}S&S.jpeg`}
                 alt="Shailesh & Shilpa monogram"
                 onError={() => setLogoError(true)}
               />

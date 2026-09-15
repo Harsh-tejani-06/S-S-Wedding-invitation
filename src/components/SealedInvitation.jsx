@@ -43,10 +43,7 @@ export default function SealedInvitation({ onOpen }) {
 
       {/* Invitation Card */}
       <div className={`invitation-card ${opening ? 'opening' : ''}`}>
-        {/* Decorative top ornament — using CSS gold divider */}
-        <div style={{ marginBottom: '1.5rem' }}>
-          <img src={`${import.meta.env.BASE_URL}divider.png`} alt="" className="section-divider" style={{ opacity: 0.4, width: '120px' }} />
-        </div>
+
 
         {/* Seal */}
         <div className="invitation-seal">
@@ -75,10 +72,7 @@ export default function SealedInvitation({ onOpen }) {
           Open Invitation
         </button>
 
-        {/* Bottom ornament */}
-        <div style={{ marginTop: '1.5rem' }}>
-          <img src={`${import.meta.env.BASE_URL}divider.png`} alt="" className="section-divider" style={{ opacity: 0.4, width: '120px', transform: 'rotate(180deg)' }} />
-        </div>
+
       </div>
     </div>
   );

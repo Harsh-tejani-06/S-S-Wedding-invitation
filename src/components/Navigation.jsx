@@ -31,7 +31,9 @@ export default function Navigation({ visible }) {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="nav-logo">S & S</div>
+        <div className="nav-logo">
+          <img src={`${import.meta.env.BASE_URL}logo.jpeg`} alt="Logo" style={{ height: '40px', borderRadius: '50%' }} />
+        </div>
 
         {/* Desktop Links */}
         <ul className="nav-links">

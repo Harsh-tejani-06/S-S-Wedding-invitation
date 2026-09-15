@@ -1,5 +1,6 @@
 import { useCountdown } from '../hooks/useWedding';
 import ScrollReveal from './ScrollReveal';
+import ScratchCard from './ScratchCard';
 
 export default function Countdown() {
   const { days, hours, minutes, seconds, complete } = useCountdown();
@@ -20,15 +21,17 @@ export default function Countdown() {
               "Today, two hearts become one."
             </p>
           ) : (
-            <div className="countdown-grid">
-              <CountdownUnit value={days} label="Days" />
-              <span className="countdown-separator">:</span>
-              <CountdownUnit value={hours} label="Hours" />
-              <span className="countdown-separator">:</span>
-              <CountdownUnit value={minutes} label="Minutes" />
-              <span className="countdown-separator">:</span>
-              <CountdownUnit value={seconds} label="Seconds" />
-            </div>
+            <ScratchCard>
+              <div className="countdown-grid" style={{ padding: '2rem', background: 'rgba(255,255,255,0.05)', borderRadius: '8px' }}>
+                <CountdownUnit value={days} label="Days" />
+                <span className="countdown-separator">:</span>
+                <CountdownUnit value={hours} label="Hours" />
+                <span className="countdown-separator">:</span>
+                <CountdownUnit value={minutes} label="Minutes" />
+                <span className="countdown-separator">:</span>
+                <CountdownUnit value={seconds} label="Seconds" />
+              </div>
+            </ScratchCard>
           )}
         </ScrollReveal>
       </div>
