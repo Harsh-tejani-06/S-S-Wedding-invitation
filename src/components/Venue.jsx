@@ -32,17 +32,15 @@ export default function Venue() {
                 <p className="venue-card-address">
                   {event.venue || 'Venue to be announced'}
                 </p>
-                {event.venueAddress && (
-                  <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.venueAddress)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-outline"
-                    style={{ fontSize: '0.75rem', padding: '0.5rem 1rem' }}
-                  >
-                    📍 View on Map
-                  </a>
-                )}
+                <a
+                  href="https://maps.app.goo.gl/H9L8E87Tu8aumigYA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline"
+                  style={{ fontSize: '0.75rem', padding: '0.5rem 1rem', marginTop: '1rem', display: 'inline-block' }}
+                >
+                  📍 View on Map
+                </a>
               </div>
             </ScrollReveal>
           ))}

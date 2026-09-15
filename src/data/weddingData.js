@@ -113,8 +113,6 @@ export const NAV_ITEMS = [
   { id: 'home', label: 'Home', href: '#home' },
   { id: 'celebrations', label: 'Celebrations', href: '#celebrations' },
   { id: 'wardrobe', label: 'Wardrobe', href: '#wardrobe' },
-  { id: 'gallery', label: 'Memories', href: '#gallery' },
-  { id: 'family', label: 'Families', href: '#family' },
   { id: 'venue', label: 'Venue', href: '#venue' },
 ];
 

@@ -1010,186 +1010,337 @@ h1, h2, h3, h4, h5 {
   line-height: 1.7;
 }
 
-/* ─── Celebrations Timeline ─── */
+/* ─── Celebrations Section (Royal Cream Theme) ─── */
 .celebrations-section {
-  background: var(--ivory);
+  background: linear-gradient(135deg, #F8F1E5 0%, #F3E8D2 50%, #F8F0E2 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+}
+
+.celebrations-bg-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/mandala.png');
+  background-size: 800px;
+  background-position: center;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .celebrations-bg-texture {
+    animation: rotateBg 180s linear infinite;
+  }
+}
+
+@keyframes rotateBg {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.celebrations-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.celebrations-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.celebrations-header .heading-section {
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+  color: #5A2525;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.title-divider {
+  color: #B18A3A;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+}
+
+.celebrations-header .heading-sub {
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+  font-style: italic;
+  color: #8B7355;
+  font-size: 1.2rem;
 }
 
 .day-block {
-  margin-bottom: var(--space-4xl);
   position: relative;
+}
+
+.day-transition {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 0;
+  gap: 1rem;
+  color: #B18A3A;
+}
+
+.day-transition-line {
+  height: 1px;
+  width: 60px;
+  background: #B18A3A;
+  opacity: 0.5;
+}
+
+.day-transition-ornament {
+  font-size: 0.8rem;
 }
 
 .day-header {
   text-align: center;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: 2rem;
 }
 
 .day-label {
-  font-family: var(--font-heading);
-  font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+  font-family: var(--font-heading, "Inter", sans-serif);
+  font-size: 0.85rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold-dark);
-  margin-bottom: var(--space-xs);
+  color: #9A8060;
+  margin-bottom: 0.5rem;
 }
 
 .day-date {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  color: var(--maroon);
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: #642929;
   letter-spacing: 0.06em;
+}
+
+.day-divider {
+  width: 40px;
+  height: 2px;
+  background: #B18A3A;
+  margin: 1rem auto;
+  opacity: 0.7;
 }
 
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-xl);
-  max-width: 900px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-/* ─── Event Cards ─── */
+.events-grid.single-event {
+  grid-template-columns: 1fr;
+  max-width: 750px;
+}
+
+/* ─── Luxury Event Cards ─── */
 .event-card {
-  background: var(--cream);
-  border-radius: var(--radius-lg);
-  padding: var(--space-2xl);
+  background: #FAF7F2;
+  border-radius: 12px;
+  padding: 2.5rem;
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: all 0.5s var(--ease-elegant);
-  border: 1px solid rgba(201, 168, 76, 0.15);
-  z-index: 0;
-}
-
-/* Animated border: a spinning conic-gradient behind the card */
-.event-card::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: calc(var(--radius-lg) + 2px);
-  background: conic-gradient(
-    from var(--border-angle, 0deg),
-    transparent 0%,
-    rgba(201, 168, 76, 0.05) 10%,
-    rgba(201, 168, 76, 0.5) 20%,
-    var(--gold) 25%,
-    rgba(201, 168, 76, 0.5) 30%,
-    rgba(201, 168, 76, 0.05) 40%,
-    transparent 50%,
-    transparent 100%
-  );
-  z-index: -2;
-  animation: borderRotate 4s linear infinite;
-}
-
-/* Inner card fill to cover the gradient except at edges */
-.event-card::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
-  border-radius: calc(var(--radius-lg) - 1px);
-  background: var(--cream);
-  z-index: -1;
-}
-
-@keyframes borderRotate {
-  0% { --border-angle: 0deg; }
-  100% { --border-angle: 360deg; }
-}
-
-/* Register the custom property for animation */
-@property --border-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  border: 1px solid rgba(177, 138, 58, 0.28);
+  box-shadow: 0 12px 35px rgba(75, 45, 30, 0.08);
+  z-index: 1;
 }
 
 .event-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-elevated), var(--shadow-gold);
+  box-shadow: 0 18px 45px rgba(75, 45, 30, 0.14);
 }
 
-.event-card:hover::before {
-  opacity: 1;
+.event-card-content {
+  position: relative;
+  z-index: 2;
 }
+
 
 .event-card-icon {
-  font-size: 2rem;
-  margin-bottom: var(--space-md);
-  display: block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.event-card:hover .event-card-icon {
+  transform: scale(1.08);
 }
 
 .event-card-date {
-  font-family: var(--font-heading);
-  font-size: 0.75rem;
+  font-family: var(--font-heading, "Inter", sans-serif);
+  font-size: 1rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold-dark);
-  margin-bottom: var(--space-sm);
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+  opacity: 0.9;
 }
 
 .event-card-name {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-  color: var(--maroon);
-  letter-spacing: 0.06em;
-  margin-bottom: var(--space-sm);
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+  font-size: 2.8rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
 .event-card-time {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  color: var(--gold);
-  letter-spacing: 0.1em;
-  font-weight: 500;
-  margin-bottom: var(--space-md);
+  font-family: var(--font-heading, "Inter", sans-serif);
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  opacity: 1;
+  color: #FFFFFF;
+}
+
+.event-card-divider {
+  width: 30px;
+  height: 1px;
+  background: currentColor;
+  margin: 0 auto 1.5rem;
+  opacity: 0.3;
 }
 
 .event-card-desc {
-  font-family: var(--font-body);
-  color: var(--text-secondary);
-  font-weight: 300;
-  font-size: 0.9rem;
-  line-height: 1.7;
-  font-style: italic;
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: 1.3rem;
+  line-height: 1.6;
+  opacity: 1;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 .event-card-venue {
-  margin-top: var(--space-md);
-  padding-top: var(--space-md);
-  border-top: 1px solid rgba(201, 168, 76, 0.1);
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  color: var(--text-light);
-  letter-spacing: 0.05em;
+  font-family: var(--font-heading, "Inter", sans-serif);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  opacity: 0.9;
 }
 
-/* Featured wedding card */
-.event-card.featured {
-  background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-deep) 100%);
-  border: 1px solid rgba(201, 168, 76, 0.3);
-  color: var(--text-on-dark);
+/* ─── Specific Event Palettes ─── */
+.event-card-carnival {
+  border-top: 3px solid #8CCFE8;
+  color: #FFFFFF;
+}
+.event-card-carnival .event-card-icon { color: #8CCFE8; }
+.event-card-carnival:hover { 
+  border-color: #8CCFE8;
 }
 
-.event-card.featured .event-card-name {
-  color: var(--gold);
-  font-size: clamp(1.5rem, 3vw, 2rem);
+.event-card-sufi-night {
+  border-top: 3px solid #9B78B3;
+  color: #FFFFFF;
+}
+.event-card-sufi-night .event-card-icon { color: #9B78B3; }
+.event-card-sufi-night:hover { 
+  border-color: #9B78B3;
 }
 
-.event-card.featured .event-card-desc {
-  color: var(--champagne);
-  opacity: 0.8;
+.event-card-madap-muhurat {
+  border-top: 3px solid #789C78;
+  color: #FFFFFF;
+}
+.event-card-madap-muhurat .event-card-icon { color: #789C78; }
+.event-card-madap-muhurat:hover { 
+  border-color: #789C78;
 }
 
-.event-card.featured .event-card-date {
-  color: var(--gold-light);
+.event-card-cocktail-party {
+  border-top: 3px solid #3B9EAD;
+  color: #FFFFFF;
+}
+.event-card-cocktail-party .event-card-icon { color: #3B9EAD; }
+.event-card-cocktail-party:hover { 
+  border-color: #3B9EAD;
+}
+
+/* Wedding Card (Featured) */
+.event-card-wedding {
+  background: linear-gradient(135deg, #F8EDE2, #F1DCD0);
+  border: 1px solid #B08A3E;
+  color: #6B2026;
+  box-shadow: 0 15px 40px rgba(107, 32, 38, 0.12);
+}
+.event-card-wedding .event-card-icon { color: #B08A3E; }
+.event-card-wedding:hover {
+  border-color: #B08A3E;
+  box-shadow: 0 20px 50px rgba(107, 32, 38, 0.2);
+}
+.event-card-wedding .event-card-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(176, 138, 62, 0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .event-card-wedding .event-card-glow {
+    animation: weddingGlow 4s ease-in-out infinite alternate;
+  }
+}
+@keyframes weddingGlow {
+  0% { opacity: 0.15; }
+  100% { opacity: 0.28; }
+}
+
+/* ─── Corner Ornaments ─── */
+.corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #B18A3A;
+  opacity: 0.2;
+  transition: opacity 0.4s;
+}
+.event-card:hover .corner { opacity: 0.5; }
+
+.corner.top-left { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+.corner.top-right { top: 12px; right: 12px; border-left: none; border-bottom: none; }
+.corner.bottom-left { bottom: 12px; left: 12px; border-right: none; border-top: none; }
+.corner.bottom-right { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+
+/* ─── Responsive Layout ─── */
+@media (max-width: 768px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .events-grid.single-event {
+    max-width: 100%;
+  }
+  .event-card {
+    padding: 2rem 1.5rem;
+  }
+  .celebrations-section {
+    padding: 4rem 1rem;
+  }
+  .celebrations-header .heading-section {
+    font-size: 2.2rem;
+  }
 }
 
 /* ─── Wardrobe Planner ─── */
@@ -1963,3 +2114,5 @@ h1, h2, h3, h4, h5 {
     transform: none;
   }
 }
+/* trigger deploy */
+.dummy-deploy-trigger { display: none; }
