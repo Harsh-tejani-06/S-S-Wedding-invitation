@@ -2,7 +2,7 @@ import ScrollReveal from './ScrollReveal';
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" style={{ position: 'relative', paddingBottom: '2rem' }}>
       <ScrollReveal>
         <img
           src={`${import.meta.env.BASE_URL}logo.jpeg`}
@@ -32,6 +32,19 @@ export default function Footer() {
       <p className="footer-credit">
         Made with love for our wedding celebration
       </p>
+
+      <div style={{
+        position: 'absolute',
+        bottom: '15px',
+        right: '25px',
+        fontSize: '2rem',
+        fontFamily: 'var(--font-heading)',
+        color: 'white',
+        letterSpacing: '0.05em',
+        opacity: 1
+      }}>
+        Made by Harsh Tejani
+      </div>
     </footer>
   );
 }
