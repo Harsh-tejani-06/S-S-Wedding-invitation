@@ -32,8 +32,8 @@ export default function MusicControl({ visible, autoPlay }) {
   return (
     <>
       {/* Add your audio file: place an MP3 in /public/ and update the src */}
-      <audio ref={audioRef} loop preload="none">
-        <source src="/wedding-music.mp3" type="audio/mpeg" />
+      <audio ref={audioRef} loop>
+        <source src={`${import.meta.env.BASE_URL}wedding-music.mp3`} type="audio/mpeg" />
       </audio>
 
       <button

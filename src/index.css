@@ -360,7 +360,7 @@ h1, h2, h3, h4, h5 {
 .invitation-bg-pattern {
   position: absolute;
   inset: 0;
-  background-image: url('/mandala.png');
+  background-image: url('/S-S-Wedding-invitation/mandala.png');
   background-size: cover;
   background-position: center;
   opacity: 0.08;
@@ -859,7 +859,7 @@ h1, h2, h3, h4, h5 {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/mandala.png');
+  background-image: url('/S-S-Wedding-invitation/mandala.png');
   background-size: 500px;
   background-position: center;
   background-repeat: no-repeat;

@@ -9,12 +9,12 @@ export default function Hero() {
     <section id="home" className="hero">
       {/* Background */}
       <div className="hero-bg">
-        <img src="/palace.png" alt="" aria-hidden="true" />
+        <img src={`${import.meta.env.BASE_URL}palace.png`} alt="" aria-hidden="true" />
       </div>
       <div className="hero-overlay" />
 
       {/* Slow spinning mandala */}
-      <img src="/mandala.png" alt="" className="hero-mandala" aria-hidden="true" />
+      <img src={`${import.meta.env.BASE_URL}mandala.png`} alt="" className="hero-mandala" aria-hidden="true" />
 
       {/* Gold particles */}
       <GoldParticles />
@@ -27,7 +27,7 @@ export default function Hero() {
               <span className="hero-logo-fallback">S & S</span>
             ) : (
               <img
-                src="/logo.jpeg"
+                src={`${import.meta.env.BASE_URL}logo.jpeg`}
                 alt="Shailesh & Shilpa monogram"
                 onError={() => setLogoError(true)}
               />

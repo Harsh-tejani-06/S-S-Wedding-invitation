@@ -5,10 +5,10 @@ export default function Footer() {
     <footer className="footer">
       <ScrollReveal>
         <img
-          src="/divider.png"
+          src={`${import.meta.env.BASE_URL}divider.png`}
           alt=""
           className="section-divider"
-          style={{ marginBottom: '2rem', opacity: 0.3 }}
+          style={{ opacity: 0.2, width: '120px' }}
         />
       </ScrollReveal>
 

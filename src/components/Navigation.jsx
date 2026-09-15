@@ -35,7 +35,7 @@ export default function Navigation({ visible }) {
 
         {/* Desktop Links */}
         <ul className="nav-links">
-          {NAV_LINKS.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <li key={item.id}>
               <a
                 href={item.href}
