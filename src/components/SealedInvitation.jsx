@@ -1,11 +1,20 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 
 export default function SealedInvitation({ onOpen }) {
+  const [sealBreaking, setSealBreaking] = useState(false);
   const [opening, setOpening] = useState(false);
 
   const handleOpen = () => {
-    setOpening(true);
-    setTimeout(() => onOpen(), 1000);
+    // Phase 1: Break the seal
+    setSealBreaking(true);
+
+    // Phase 2: After seal breaks, open the card
+    setTimeout(() => {
+      setOpening(true);
+    }, 900);
+
+    // Phase 3: Transition to main website
+    setTimeout(() => onOpen(), 1800);
   };
 
   // Generate floating petals
@@ -44,10 +53,24 @@ export default function SealedInvitation({ onOpen }) {
       {/* Invitation Card */}
       <div className={`invitation-card ${opening ? 'opening' : ''}`}>
 
-
-        {/* Seal */}
-        <div className="invitation-seal">
-          <img src={`${import.meta.env.BASE_URL}seal.png`} alt="S & S Wedding Seal" />
+        {/* Seal with breaking animation */}
+        <div className={`invitation-seal ${sealBreaking ? 'breaking' : ''}`}>
+          {/* Glow burst behind seal */}
+          <div className="seal-glow-burst" />
+          {/* Left half of seal */}
+          <div className="seal-half seal-half-left">
+            <img src={`${import.meta.env.BASE_URL}seal.png`} alt="" />
+          </div>
+          {/* Right half of seal */}
+          <div className="seal-half seal-half-right">
+            <img src={`${import.meta.env.BASE_URL}seal.png`} alt="" />
+          </div>
+          {/* Full seal (visible before break) */}
+          <img
+            className="seal-full"
+            src={`${import.meta.env.BASE_URL}seal.png`}
+            alt="S & S Wedding Seal"
+          />
         </div>
 
         {/* Names */}
@@ -67,6 +90,7 @@ export default function SealedInvitation({ onOpen }) {
         <button
           className="invitation-cta"
           onClick={handleOpen}
+          disabled={sealBreaking}
           aria-label="Open the wedding invitation"
         >
           Open Invitation

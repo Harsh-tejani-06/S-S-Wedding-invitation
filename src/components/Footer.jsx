@@ -29,9 +29,6 @@ export default function Footer() {
 
       <div className="gold-divider" style={{ margin: '2rem auto' }} />
 
-      <p className="footer-credit">
-        Made with love for our wedding celebration
-      </p>
 
       <div style={{
         position: 'absolute',

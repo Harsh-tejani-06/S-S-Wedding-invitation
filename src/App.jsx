@@ -60,7 +60,7 @@ export default function App() {
 
       {/* Main Content */}
       <main style={{ opacity: isWebsite ? 1 : 0, transition: 'opacity 0.8s ease' }}>
-        <Hero />
+        <Hero isVisible={isWebsite} />
         <Countdown />
         <Celebrations />
         <Venue />

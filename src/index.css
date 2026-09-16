@@ -67,7 +67,9 @@
 }
 
 /* ─── Reset & Base ─── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -111,13 +113,19 @@ button {
   font-family: inherit;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
 }
 
 /* ─── Typography ─── */
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: var(--font-display);
   font-weight: 400;
   line-height: 1.2;
@@ -239,9 +247,20 @@ h1, h2, h3, h4, h5 {
 }
 
 @keyframes borderPulse {
-  0% { border-color: rgba(201, 168, 76, 0.2); box-shadow: 0 12px 35px rgba(75, 45, 30, 0.08), 0 0 5px rgba(201, 168, 76, 0.1); }
-  50% { border-color: rgba(201, 168, 76, 1); box-shadow: 0 12px 35px rgba(75, 45, 30, 0.08), 0 0 20px rgba(201, 168, 76, 0.6); }
-  100% { border-color: rgba(201, 168, 76, 0.2); box-shadow: 0 12px 35px rgba(75, 45, 30, 0.08), 0 0 5px rgba(201, 168, 76, 0.1); }
+  0% {
+    border-color: rgba(201, 168, 76, 0.2);
+    box-shadow: 0 12px 35px rgba(75, 45, 30, 0.08), 0 0 5px rgba(201, 168, 76, 0.1);
+  }
+
+  50% {
+    border-color: rgba(201, 168, 76, 1);
+    box-shadow: 0 12px 35px rgba(75, 45, 30, 0.08), 0 0 20px rgba(201, 168, 76, 0.6);
+  }
+
+  100% {
+    border-color: rgba(201, 168, 76, 0.2);
+    box-shadow: 0 12px 35px rgba(75, 45, 30, 0.08), 0 0 5px rgba(201, 168, 76, 0.1);
+  }
 }
 
 /* ─── Ornamental Corners ─── */
@@ -315,20 +334,39 @@ h1, h2, h3, h4, h5 {
 }
 
 @keyframes loadingPulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* ─── Sealed Invitation ─── */
@@ -374,7 +412,7 @@ h1, h2, h3, h4, h5 {
   border-radius: var(--radius-lg);
   padding: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 4vw, 3rem);
   text-align: center;
-  box-shadow: 0 0 80px rgba(201, 168, 76, 0.15), 0 20px 60px rgba(0,0,0,0.4);
+  box-shadow: 0 0 80px rgba(201, 168, 76, 0.15), 0 20px 60px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   transition: transform 1s var(--ease-elegant), opacity 0.8s;
 }
@@ -411,20 +449,28 @@ h1, h2, h3, h4, h5 {
   height: clamp(125px, 25vw, 180px);
   margin: 0 auto var(--space-xl);
   border-radius: 50%;
-  overflow: hidden;
   box-shadow: 0 0 40px rgba(201, 168, 76, 0.3);
   animation: sealGlow 3s var(--ease-elegant) infinite;
+  position: relative;
 }
 
-.invitation-seal img {
+.invitation-seal>.seal-full {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 @keyframes sealGlow {
-  0%, 100% { box-shadow: 0 0 30px rgba(201, 168, 76, 0.2); }
-  50% { box-shadow: 0 0 50px rgba(201, 168, 76, 0.4); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(201, 168, 76, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 50px rgba(201, 168, 76, 0.4);
+  }
 }
 
 .invitation-names {
@@ -502,8 +548,13 @@ h1, h2, h3, h4, h5 {
 }
 
 @keyframes shimmer {
-  0% { left: -100%; }
-  100% { left: 100%; }
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }
 
 /* Floating petals on invitation */
@@ -522,13 +573,16 @@ h1, h2, h3, h4, h5 {
     transform: translateY(-20px) rotate(0deg) scale(0);
     opacity: 0;
   }
+
   10% {
     opacity: 1;
     transform: translateY(0) rotate(45deg) scale(1);
   }
+
   90% {
     opacity: 0.6;
   }
+
   100% {
     transform: translateY(100vh) rotate(360deg) scale(0.5);
     opacity: 0;
@@ -563,7 +617,7 @@ h1, h2, h3, h4, h5 {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: var(--space-sm) var(--space-xl);
-  box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
 }
 
 .nav-logo {
@@ -709,13 +763,11 @@ h1, h2, h3, h4, h5 {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(61, 15, 16, 0.7) 0%,
-    rgba(61, 15, 16, 0.4) 40%,
-    rgba(61, 15, 16, 0.6) 70%,
-    rgba(61, 15, 16, 0.9) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(61, 15, 16, 0.7) 0%,
+      rgba(61, 15, 16, 0.4) 40%,
+      rgba(61, 15, 16, 0.6) 70%,
+      rgba(61, 15, 16, 0.9) 100%);
   z-index: 1;
 }
 
@@ -732,8 +784,13 @@ h1, h2, h3, h4, h5 {
 }
 
 @keyframes mandalaSpin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .hero-content {
@@ -827,8 +884,17 @@ h1, h2, h3, h4, h5 {
 }
 
 @keyframes scrollBounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
-  50% { transform: translateX(-50%) translateY(10px); opacity: 0.5; }
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0.5;
+  }
 }
 
 /* ─── Canvas Particles ─── */
@@ -932,6 +998,53 @@ h1, h2, h3, h4, h5 {
   animation: fadeIn 1s var(--ease-elegant);
 }
 
+/* ─── Scratch Card Styles ─── */
+.scratch-card-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.scratch-card-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: var(--radius-xl);
+  touch-action: none;
+  z-index: 10;
+  transition: opacity 0.45s ease-out, transform 0.45s ease-out, filter 0.45s ease-out;
+}
+
+.scratch-card-canvas.bursting {
+  opacity: 0;
+  transform: scale(1.05);
+  filter: blur(8px) brightness(1.35);
+  pointer-events: none;
+}
+
+.scratch-card-revealed {
+  animation: countdownCardReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes countdownCardReveal {
+  0% {
+    transform: scale(0.96);
+    filter: brightness(1.3);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
 /* ─── Our Story ─── */
 .story-timeline {
   position: relative;
@@ -1032,8 +1145,13 @@ h1, h2, h3, h4, h5 {
 }
 
 @keyframes rotateBg {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .celebrations-inner {
@@ -1191,7 +1309,7 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 0.2rem;
   letter-spacing: 0.05em;
   color: #FFFFFF;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .event-card-time {
@@ -1218,7 +1336,7 @@ h1, h2, h3, h4, h5 {
   opacity: 1;
   margin-bottom: 1rem;
   color: #FFFFFF;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .event-card-venue {
@@ -1234,22 +1352,34 @@ h1, h2, h3, h4, h5 {
 .event-card-carnival {
   color: #FFFFFF;
 }
-.event-card-carnival .event-card-icon { color: #8CCFE8; }
+
+.event-card-carnival .event-card-icon {
+  color: #8CCFE8;
+}
 
 .event-card-sufi-night {
   color: #FFFFFF;
 }
-.event-card-sufi-night .event-card-icon { color: #9B78B3; }
+
+.event-card-sufi-night .event-card-icon {
+  color: #9B78B3;
+}
 
 .event-card-madap-muhurat {
   color: #FFFFFF;
 }
-.event-card-madap-muhurat .event-card-icon { color: #789C78; }
+
+.event-card-madap-muhurat .event-card-icon {
+  color: #789C78;
+}
 
 .event-card-cocktail-party {
   color: #FFFFFF;
 }
-.event-card-cocktail-party .event-card-icon { color: #3B9EAD; }
+
+.event-card-cocktail-party .event-card-icon {
+  color: #3B9EAD;
+}
 
 /* Wedding Card (Featured) */
 .event-card-wedding {
@@ -1258,11 +1388,16 @@ h1, h2, h3, h4, h5 {
   color: #6B2026;
   box-shadow: 0 15px 40px rgba(107, 32, 38, 0.12);
 }
-.event-card-wedding .event-card-icon { color: #B08A3E; }
+
+.event-card-wedding .event-card-icon {
+  color: #B08A3E;
+}
+
 .event-card-wedding:hover {
   border-color: #B08A3E;
   box-shadow: 0 20px 50px rgba(107, 32, 38, 0.2);
 }
+
 .event-card-wedding .event-card-glow {
   position: absolute;
   top: 50%;
@@ -1280,9 +1415,15 @@ h1, h2, h3, h4, h5 {
     animation: weddingGlow 4s ease-in-out infinite alternate;
   }
 }
+
 @keyframes weddingGlow {
-  0% { opacity: 0.15; }
-  100% { opacity: 0.28; }
+  0% {
+    opacity: 0.15;
+  }
+
+  100% {
+    opacity: 0.28;
+  }
 }
 
 /* ─── Corner Ornaments ─── */
@@ -1294,12 +1435,38 @@ h1, h2, h3, h4, h5 {
   opacity: 0.2;
   transition: opacity 0.4s;
 }
-.event-card:hover .corner { opacity: 0.5; }
 
-.corner.top-left { top: 12px; left: 12px; border-right: none; border-bottom: none; }
-.corner.top-right { top: 12px; right: 12px; border-left: none; border-bottom: none; }
-.corner.bottom-left { bottom: 12px; left: 12px; border-right: none; border-top: none; }
-.corner.bottom-right { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+.event-card:hover .corner {
+  opacity: 0.5;
+}
+
+.corner.top-left {
+  top: 12px;
+  left: 12px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner.top-right {
+  top: 12px;
+  right: 12px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner.bottom-left {
+  bottom: 12px;
+  left: 12px;
+  border-right: none;
+  border-top: none;
+}
+
+.corner.bottom-right {
+  bottom: 12px;
+  right: 12px;
+  border-left: none;
+  border-top: none;
+}
 
 /* ─── Responsive Layout ─── */
 @media (max-width: 768px) {
@@ -1307,15 +1474,19 @@ h1, h2, h3, h4, h5 {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
   .events-grid.single-event {
     max-width: 100%;
   }
+
   .event-card {
     padding: 2rem 1.5rem;
   }
+
   .celebrations-section {
     padding: 4rem 1rem;
   }
+
   .celebrations-header .heading-section {
     font-size: 2.2rem;
   }
@@ -1410,7 +1581,7 @@ h1, h2, h3, h4, h5 {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transition: left 0.6s;
 }
 
@@ -1801,9 +1972,17 @@ h1, h2, h3, h4, h5 {
 }
 
 @keyframes successPop {
-  0% { transform: scale(0); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .rsvp-success h3 {
@@ -1868,19 +2047,46 @@ h1, h2, h3, h4, h5 {
   transition: height 0.3s;
 }
 
-.music-bars.playing .music-bar:nth-child(1) { animation: musicBar 0.6s ease-in-out infinite alternate; }
-.music-bars.playing .music-bar:nth-child(2) { animation: musicBar 0.6s ease-in-out 0.1s infinite alternate; }
-.music-bars.playing .music-bar:nth-child(3) { animation: musicBar 0.6s ease-in-out 0.2s infinite alternate; }
-.music-bars.playing .music-bar:nth-child(4) { animation: musicBar 0.6s ease-in-out 0.3s infinite alternate; }
+.music-bars.playing .music-bar:nth-child(1) {
+  animation: musicBar 0.6s ease-in-out infinite alternate;
+}
 
-.music-bar:nth-child(1) { height: 4px; }
-.music-bar:nth-child(2) { height: 8px; }
-.music-bar:nth-child(3) { height: 6px; }
-.music-bar:nth-child(4) { height: 10px; }
+.music-bars.playing .music-bar:nth-child(2) {
+  animation: musicBar 0.6s ease-in-out 0.1s infinite alternate;
+}
+
+.music-bars.playing .music-bar:nth-child(3) {
+  animation: musicBar 0.6s ease-in-out 0.2s infinite alternate;
+}
+
+.music-bars.playing .music-bar:nth-child(4) {
+  animation: musicBar 0.6s ease-in-out 0.3s infinite alternate;
+}
+
+.music-bar:nth-child(1) {
+  height: 4px;
+}
+
+.music-bar:nth-child(2) {
+  height: 8px;
+}
+
+.music-bar:nth-child(3) {
+  height: 6px;
+}
+
+.music-bar:nth-child(4) {
+  height: 10px;
+}
 
 @keyframes musicBar {
-  0% { height: 3px; }
-  100% { height: 14px; }
+  0% {
+    height: 3px;
+  }
+
+  100% {
+    height: 14px;
+  }
 }
 
 /* ─── Footer ─── */
@@ -1939,11 +2145,25 @@ h1, h2, h3, h4, h5 {
   transform: translateY(0);
 }
 
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
+.reveal-delay-5 {
+  transition-delay: 0.5s;
+}
 
 /* ─── Scroll Progress ─── */
 .scroll-progress {
@@ -2072,7 +2292,10 @@ h1, h2, h3, h4, h5 {
 
 /* ─── Reduced Motion ─── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -2093,5 +2316,374 @@ h1, h2, h3, h4, h5 {
     transform: none;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   SEAL BREAKING ANIMATION
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Seal container — relative for positioning halves */
+
+.invitation-seal>.seal-full {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.invitation-seal .seal-half {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.invitation-seal .seal-half img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.seal-half-left {
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.seal-half-right {
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+/* Glow burst behind seal */
+.seal-glow-burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.8) 0%, rgba(201, 168, 76, 0) 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+/* When seal is breaking */
+.invitation-seal.breaking .seal-full {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.invitation-seal.breaking .seal-half {
+  opacity: 1;
+}
+
+.invitation-seal.breaking .seal-half-left {
+  animation: sealBreakLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.invitation-seal.breaking .seal-half-right {
+  animation: sealBreakRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.invitation-seal.breaking .seal-glow-burst {
+  width: 200%;
+  height: 200%;
+  opacity: 1;
+  animation: sealGlowBurst 0.8s ease-out forwards;
+}
+
+@keyframes sealBreakLeft {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+
+  30% {
+    transform: translate(-5px, 0) rotate(-3deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-60px, 30px) rotate(-25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sealBreakRight {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+
+  30% {
+    transform: translate(5px, 0) rotate(3deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(60px, 30px) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sealGlowBurst {
+  0% {
+    width: 50%;
+    height: 50%;
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    width: 250%;
+    height: 250%;
+    opacity: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO PHOTO — CLEAN CIRCLE (NO GOLDEN BORDER) + SLIDE DOWN
+   ═══════════════════════════════════════════════════════════════ */
+
+.hero-photo-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-2xl);
+}
+
+/* Clean static circular photo frame — NO golden circular border */
+.hero-static-circle {
+  position: relative;
+  width: clamp(160px, 25vw, 225px);
+  height: clamp(160px, 25vw, 225px);
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--maroon-deep);
+  border: none;
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inner sliding photo container:
+   Starts above circle and clipped from bottom so top appears first,
+   then slides smoothly down and fits into the static circle */
+.hero-photo-slide {
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  transition:
+    transform 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+    clip-path 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s ease;
+  will-change: transform, clip-path;
+}
+
+.hero-photo-slide.fitted {
+  transform: translateY(0);
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+}
+
+/* Perfectly framed couple photo inside circle without border */
+.hero-couple-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 38%;
+  display: block;
+  filter: brightness(1.02) contrast(1.04);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RED ROSE PETALS — BURST & SWIRLING FALL SHOWER
+   ═══════════════════════════════════════════════════════════════ */
+
+.rose-petals-shower {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.rose-petal-item {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 65% 0 65% 0;
+  background: radial-gradient(
+    circle at 35% 35%,
+    hsl(var(--hue), 96%, calc(var(--light) + 14%)) 0%,
+    hsl(var(--hue), 88%, var(--light)) 55%,
+    hsl(var(--hue), 95%, calc(var(--light) - 16%)) 100%
+  );
+  box-shadow:
+    0 2px 10px rgba(139, 0, 0, 0.45),
+    0 0 12px hsla(var(--hue), 90%, 55%, 0.35);
+  opacity: 0;
+  animation: rosePetalShower var(--dur) cubic-bezier(0.22, 1, 0.36, 1) var(--delay) forwards;
+}
+
+@keyframes rosePetalShower {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  12% {
+    transform: translate(calc(var(--bx) * 0.4), calc(var(--by) * 0.4))
+      rotate(calc(var(--rot) * 0.25)) scale(var(--scale));
+    opacity: 1;
+  }
+  32% {
+    transform: translate(var(--bx), var(--by))
+      rotate(calc(var(--rot) * 0.55)) scale(var(--scale));
+    opacity: 1;
+  }
+  68% {
+    transform: translate(calc(var(--bx) * 0.7 + var(--fx) * 0.3), calc(var(--by) * 0.3 + var(--fy) * 0.7))
+      rotate(calc(var(--rot) * 0.8)) scale(calc(var(--scale) * 0.85));
+    opacity: 0.88;
+  }
+  100% {
+    transform: translate(var(--fx), var(--fy))
+      rotate(var(--rot)) scale(calc(var(--scale) * 0.6));
+    opacity: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIREWORKS CANVAS CELEBRATION
+   ═══════════════════════════════════════════════════════════════ */
+
+.fireworks-celebration-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COMMON VENUE SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+.common-venue-section {
+  margin-top: var(--space-2xl);
+  text-align: center;
+}
+
+.common-venue-card {
+  background: var(--ivory);
+  border: 2px solid var(--gold);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-xl);
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  animation: borderPulse 3s infinite ease-in-out;
+  box-shadow: 0 12px 35px rgba(75, 45, 30, 0.08);
+  transition: all 0.4s var(--ease-elegant);
+}
+
+.common-venue-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.common-venue-card::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: calc(var(--radius-xl) - 4px);
+  pointer-events: none;
+}
+
+.common-venue-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+  animation: locationBounce 2s ease-in-out infinite;
+}
+
+@keyframes locationBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.common-venue-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--maroon);
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-sm);
+}
+
+.common-venue-subtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: var(--text-secondary);
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: var(--space-xl);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.common-venue-map-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+  box-shadow: 0 4px 20px rgba(92, 26, 27, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.common-venue-map-wrapper iframe {
+  display: block;
+}
+
+.common-venue-btn {
+  margin-top: var(--space-sm);
+  font-size: 0.95rem;
+  padding: var(--space-md) var(--space-2xl);
+}
+
+/* Mobile adjustments for common venue */
+@media (max-width: 768px) {
+  .common-venue-card {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .common-venue-map-wrapper iframe {
+    height: 220px;
+  }
+}
+
 /* trigger deploy */
-.dummy-deploy-trigger { display: none; }
+.dummy-deploy-trigger {
+  display: none;
+}
