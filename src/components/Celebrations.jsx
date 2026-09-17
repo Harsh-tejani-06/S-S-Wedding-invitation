@@ -152,7 +152,18 @@ function EventCard({ event, dayDate }) {
       <div className="event-card-content">
         {showOutfit ? (
           <div className="outfit-view" style={{ textAlign: 'center', animation: 'fadeIn 0.5s ease forwards' }}>
-            <img src={outfitImage} alt={`${event.name} outfit`} style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem', boxShadow: '0 4px 15px rgba(0,0,0,0.3)' }} />
+            <img 
+              src={outfitImage} 
+              alt={`${event.name} outfit`} 
+              style={{ 
+                width: '100%', 
+                maxHeight: '50vh',
+                objectFit: 'contain',
+                borderRadius: '8px', 
+                marginBottom: '1rem', 
+                boxShadow: '0 4px 15px rgba(0,0,0,0.3)' 
+              }} 
+            />
             <button onClick={() => setShowOutfit(false)} style={{ 
               fontSize: '0.9rem', 
               padding: '0.6rem 1.2rem',
@@ -199,7 +210,7 @@ function EventCard({ event, dayDate }) {
                   boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
                 }}
               >
-                👗 Click me to show outfit plan
+                👗 Show outfit plan
               </button>
             )}
           </>

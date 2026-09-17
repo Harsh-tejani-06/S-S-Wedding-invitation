@@ -29,18 +29,8 @@ export default function Footer() {
 
       <div className="gold-divider" style={{ margin: '2rem auto' }} />
 
-
-      <div style={{
-        position: 'absolute',
-        bottom: '15px',
-        right: '25px',
-        fontSize: '2rem',
-        fontFamily: 'var(--font-heading)',
-        color: 'white',
-        letterSpacing: '0.05em',
-        opacity: 1
-      }}>
-        Made by Harsh Tejani
+      <div className="footer-made-by">
+        <span>Made by <strong>Harsh Tejani</strong></span>
       </div>
     </footer>
   );

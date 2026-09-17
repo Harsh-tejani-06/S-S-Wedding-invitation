@@ -1117,6 +1117,67 @@ h5 {
 }
 
 /* ─── Celebrations Section (Royal Cream Theme) ─── */
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays for cards entering one after another */
+.reveal.reveal-delay-1 {
+  transition-delay: 0.12s;
+}
+
+.reveal.reveal-delay-2 {
+  transition-delay: 0.24s;
+}
+
+.reveal.reveal-delay-3 {
+  transition-delay: 0.36s;
+}
+
+.reveal.reveal-delay-4 {
+  transition-delay: 0.48s;
+}
+
+.reveal.reveal-delay-5 {
+  transition-delay: 0.6s;
+}
+
+.reveal.reveal-delay-6 {
+  transition-delay: 0.72s;
+}
+
+/* Variant: scale up from slightly smaller */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CELEBRATIONS SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
 .celebrations-section {
   background: linear-gradient(135deg, #F8F1E5 0%, #F3E8D2 50%, #F8F0E2 100%);
   position: relative;
@@ -1133,25 +1194,9 @@ h5 {
   background-image: url('/mandala.png');
   background-size: 800px;
   background-position: center;
-  opacity: 0.04;
+  opacity: 0.12;
   pointer-events: none;
   z-index: 0;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .celebrations-bg-texture {
-    animation: rotateBg 180s linear infinite;
-  }
-}
-
-@keyframes rotateBg {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 .celebrations-inner {
@@ -1294,12 +1339,14 @@ h5 {
 
 .event-card-date {
   font-family: var(--font-heading, "Inter", sans-serif);
-  font-size: 1rem;
-  letter-spacing: 0.2em;
+  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
   color: #FFFFFF;
-  opacity: 0.9;
+  opacity: 0.95;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
 .event-card-name {
@@ -1314,11 +1361,13 @@ h5 {
 
 .event-card-time {
   font-family: var(--font-heading, "Inter", sans-serif);
-  font-size: 1.25rem;
+  font-size: clamp(1.45rem, 3vw, 1.75rem);
+  font-weight: 600;
   margin-bottom: 1.5rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   opacity: 1;
   color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .event-card-divider {
@@ -1489,6 +1538,14 @@ h5 {
 
   .celebrations-header .heading-section {
     font-size: 2.2rem;
+  }
+
+  /* Constrain outfit image height on mobile to prevent card overflow */
+  .outfit-view img {
+    max-height: 45vh;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
   }
 }
 
@@ -2131,6 +2188,60 @@ h5 {
   color: var(--text-light);
   opacity: 0.4;
   letter-spacing: 0.05em;
+}
+
+/* ─── Footer Made By Credit ─── */
+.footer-made-by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.08em;
+  padding: 0.8rem 0 0.5rem;
+  transition: color 0.4s ease;
+}
+
+.footer-made-by:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-made-by strong {
+  color: var(--gold-light, #E8D5A3);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.footer-made-by-icon {
+  font-size: 1rem;
+  color: var(--gold, #C9A84C);
+  opacity: 0.6;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+}
+
+.footer-heart {
+  color: #c0392b;
+  display: inline-block;
+  animation: heartBeat 1.8s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.15); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.15); }
+  56% { transform: scale(1); }
+}
+
+@media (max-width: 480px) {
+  .footer-made-by {
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+  }
 }
 
 /* ─── Scroll Reveal ─── */
